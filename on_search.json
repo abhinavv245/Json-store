@@ -1,0 +1,40 @@
+{
+  "type": "object",
+  "properties": {
+    "context": {
+      "type": "object",
+      "properties": {
+        "domain": { "type": "string" },
+        "country": { "type": "string" },
+        "city": { "type": "string" },
+        "action": { "type": "string" },
+        "core_version": { "type": "string" },
+        "bap_id": { "type": "string" },
+        "bap_uri": { "type": "string" },
+        "transaction_id": { "type": "string" },
+        "message_id": { "type": "string" },
+        "timestamp": { "type": "string", "format": "date-time" },
+        "ttl": { "type": "string", "format": "duration" },
+        "bpp_uri": { "type": "string" },
+        "bpp_id": { "type": "string" }
+      },
+      "required": [
+        "domain",
+        "action",
+        "country",
+        "city",
+        "core_version",
+        "bap_id",
+        "bap_uri",
+        "bpp_id",
+        "bpp_uri",
+        "transaction_id",
+        "message_id",
+        "timestamp",
+        "ttl"
+      ]
+    },
+
+    "required": ["context"]
+  }
+}
