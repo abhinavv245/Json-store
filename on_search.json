@@ -7,7 +7,7 @@
         "domain": { "type": "string" },
         "country": { "type": "string" },
         "city": { "type": "string" },
-        "action": { "type": "string" },
+        "action": { "type": "string", "const": "on_search"  },
         "core_version": { "type": "string" },
         "bap_id": { "type": "string" },
         "bap_uri": { "type": "string" },
