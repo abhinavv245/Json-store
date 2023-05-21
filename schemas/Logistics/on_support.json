@@ -16,7 +16,7 @@
         },
         "action": {
           "type": "string",
-          "const": "search"
+          "const": "on_support"
         },
         "core_version": {
           "type": "string",
@@ -28,8 +28,15 @@
         "bap_uri": {
           "type": "string"
         },
-        "transaction_id": {
+        "bpp_id": {
           "type": "string"
+        },
+        "bpp_uri": {
+          "type": "string"
+        },
+        "transaction_id": {
+          "type": "string",
+          "format": "uuid"
         },
         "message_id": {
           "type": "string"
@@ -37,10 +44,6 @@
         "timestamp": {
           "type": "string",
           "format": "date-time"
-        },
-        "ttl": {
-          "type": "string",
-          "const": "PT30S"
         }
       },
       "required": [
@@ -51,12 +54,28 @@
         "core_version",
         "bap_id",
         "bap_uri",
+        "bpp_id",
+        "bpp_uri",
         "transaction_id",
         "message_id",
-        "timestamp",
-        "ttl"
+        "timestamp"
       ]
+    },
+    "message": {
+      "type": "object",
+      "properties": {
+        "phone": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "uri": {
+          "type": "string"
+        }
+      },
+      "required": ["phone", "email", "uri"]
     }
   },
-  "required": ["context"]
+  "required": ["context", "message"]
 }
