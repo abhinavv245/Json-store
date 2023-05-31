@@ -5,12 +5,7 @@
       "type": "object",
       "properties": {
         "domain": {
-          "type": "string",
-          "const": "nic2004:52110"
-        },
-        "action": {
-          "type": "string",
-          "const": "confirm"
+          "type": "string"
         },
         "country": {
           "type": "string"
@@ -18,20 +13,22 @@
         "city": {
           "type": "string"
         },
-        "core_version": {
-          "type": "string",
-          "const": "1.1.0"
-        },
-        "bap_id": {
+        "action": {
           "type": "string"
         },
-        "bap_uri": {
+        "core_version": {
+          "type": "string"
+        },
+        "bap_id": {
           "type": "string"
         },
         "bpp_id": {
           "type": "string"
         },
         "bpp_uri": {
+          "type": "string"
+        },
+        "bap_uri": {
           "type": "string"
         },
         "transaction_id": {
@@ -41,31 +38,734 @@
           "type": "string"
         },
         "timestamp": {
-          "type": "string",
-          "format": "date-time"
+          "type": "string"
         },
         "ttl": {
-          "type": "string",
-          "format": "duration"
+          "type": "string"
         }
       },
       "required": [
         "domain",
-        "action",
         "country",
         "city",
+        "action",
         "core_version",
         "bap_id",
-        "bap_uri",
         "bpp_id",
         "bpp_uri",
+        "bap_uri",
         "transaction_id",
         "message_id",
         "timestamp",
         "ttl"
       ]
     },
-   
-  "required": ["context"]
-}
+    "message": {
+      "type": "object",
+      "properties": {
+        "order": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "state": {
+              "type": "string"
+            },
+            "billing": {
+              "type": "object",
+              "properties": {
+                "address": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "building": {
+                      "type": "string"
+                    },
+                    "locality": {
+                      "type": "string"
+                    },
+                    "city": {
+                      "type": "string"
+                    },
+                    "state": {
+                      "type": "string"
+                    },
+                    "country": {
+                      "type": "string"
+                    },
+                    "area_code": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "name",
+                    "building",
+                    "locality",
+                    "city",
+                    "state",
+                    "country",
+                    "area_code"
+                  ]
+                },
+                "phone": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string"
+                },
+                "created_at": {
+                  "type": "string"
+                },
+                "updated_at": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "address",
+                "phone",
+                "name",
+                "email",
+                "created_at",
+                "updated_at"
+              ]
+            },
+            "items": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "quantity": {
+                      "type": "object",
+                      "properties": {
+                        "count": {
+                          "type": "integer"
+                        }
+                      },
+                      "required": [
+                        "count"
+                      ]
+                    },
+                    "fulfillment_id": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "quantity",
+                    "fulfillment_id"
+                  ]
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "quantity": {
+                      "type": "object",
+                      "properties": {
+                        "count": {
+                          "type": "integer"
+                        }
+                      },
+                      "required": [
+                        "count"
+                      ]
+                    },
+                    "fulfillment_id": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "quantity",
+                    "fulfillment_id"
+                  ]
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "quantity": {
+                      "type": "object",
+                      "properties": {
+                        "count": {
+                          "type": "integer"
+                        }
+                      },
+                      "required": [
+                        "count"
+                      ]
+                    },
+                    "fulfillment_id": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "quantity",
+                    "fulfillment_id"
+                  ]
+                }
+              ]
+            },
+            "provider": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "locations": {
+                  "type": "array",
+                  "items": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "id"
+                      ]
+                    }
+                  ]
+                }
+              },
+              "required": [
+                "id",
+                "locations"
+              ]
+            },
+            "fulfillments": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "tracking": {
+                      "type": "boolean"
+                    },
+                    "end": {
+                      "type": "object",
+                      "properties": {
+                        "contact": {
+                          "type": "object",
+                          "properties": {
+                            "phone": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "phone"
+                          ]
+                        },
+                        "person": {
+                          "type": "object",
+                          "properties": {
+                            "name": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "name"
+                          ]
+                        },
+                        "location": {
+                          "type": "object",
+                          "properties": {
+                            "gps": {
+                              "type": "string"
+                            },
+                            "address": {
+                              "type": "object",
+                              "properties": {
+                                "name": {
+                                  "type": "string"
+                                },
+                                "building": {
+                                  "type": "string"
+                                },
+                                "locality": {
+                                  "type": "string"
+                                },
+                                "city": {
+                                  "type": "string"
+                                },
+                                "state": {
+                                  "type": "string"
+                                },
+                                "country": {
+                                  "type": "string"
+                                },
+                                "area_code": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "name",
+                                "building",
+                                "locality",
+                                "city",
+                                "state",
+                                "country",
+                                "area_code"
+                              ]
+                            }
+                          },
+                          "required": [
+                            "gps",
+                            "address"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "contact",
+                        "person",
+                        "location"
+                      ]
+                    },
+                    "type": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "tracking",
+                    "end",
+                    "type"
+                  ]
+                }
+              ]
+            },
+            "payment": {
+              "type": "object",
+              "properties": {
+                "uri": {
+                  "type": "string"
+                },
+                "tl_method": {
+                  "type": "string"
+                },
+                "params": {
+                  "type": "object",
+                  "properties": {
+                    "amount": {
+                      "type": "string"
+                    },
+                    "currency": {
+                      "type": "string"
+                    },
+                    "transaction_id": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "amount",
+                    "currency",
+                    "transaction_id"
+                  ]
+                },
+                "status": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string"
+                },
+                "collected_by": {
+                  "type": "string"
+                },
+                "@ondc/org/buyer_app_finder_fee_type": {
+                  "type": "string"
+                },
+                "@ondc/org/buyer_app_finder_fee_amount": {
+                  "type": "string"
+                },
+                "@ondc/org/settlement_details": {
+                  "type": "array",
+                  "items": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "settlement_counterparty": {
+                          "type": "string"
+                        },
+                        "settlement_phase": {
+                          "type": "string"
+                        },
+                        "settlement_type": {
+                          "type": "string"
+                        },
+                        "beneficiary_name": {
+                          "type": "string"
+                        },
+                        "upi_address": {
+                          "type": "string"
+                        },
+                        "settlement_bank_account_no": {
+                          "type": "string"
+                        },
+                        "settlement_ifsc_code": {
+                          "type": "string"
+                        },
+                        "bank_name": {
+                          "type": "string"
+                        },
+                        "branch_name": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "settlement_counterparty",
+                        "settlement_phase",
+                        "settlement_type",
+                        "beneficiary_name",
+                        "upi_address",
+                        "settlement_bank_account_no",
+                        "settlement_ifsc_code",
+                        "bank_name",
+                        "branch_name"
+                      ]
+                    }
+                  ]
+                }
+              },
+              "required": [
+                "uri",
+                "tl_method",
+                "params",
+                "status",
+                "type",
+                "collected_by",
+                "@ondc/org/buyer_app_finder_fee_type",
+                "@ondc/org/buyer_app_finder_fee_amount",
+                "@ondc/org/settlement_details"
+              ]
+            },
+            "quote": {
+              "type": "object",
+              "properties": {
+                "price": {
+                  "type": "object",
+                  "properties": {
+                    "currency": {
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "currency",
+                    "value"
+                  ]
+                },
+                "breakup": {
+                  "type": "array",
+                  "items": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "@ondc/org/item_id": {
+                          "type": "string"
+                        },
+                        "@ondc/org/item_quantity": {
+                          "type": "object",
+                          "properties": {
+                            "count": {
+                              "type": "integer"
+                            }
+                          },
+                          "required": [
+                            "count"
+                          ]
+                        },
+                        "title": {
+                          "type": "string"
+                        },
+                        "@ondc/org/title_type": {
+                          "type": "string"
+                        },
+                        "price": {
+                          "type": "object",
+                          "properties": {
+                            "currency": {
+                              "type": "string"
+                            },
+                            "value": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "currency",
+                            "value"
+                          ]
+                        },
+                        "item": {
+                          "type": "object",
+                          "properties": {
+                            "price": {
+                              "type": "object",
+                              "properties": {
+                                "currency": {
+                                  "type": "string"
+                                },
+                                "value": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "currency",
+                                "value"
+                              ]
+                            }
+                          },
+                          "required": [
+                            "price"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "@ondc/org/item_id",
+                        "@ondc/org/item_quantity",
+                        "title",
+                        "@ondc/org/title_type",
+                        "price",
+                        "item"
+                      ]
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "@ondc/org/item_id": {
+                          "type": "string"
+                        },
+                        "@ondc/org/item_quantity": {
+                          "type": "object",
+                          "properties": {
+                            "count": {
+                              "type": "integer"
+                            }
+                          },
+                          "required": [
+                            "count"
+                          ]
+                        },
+                        "title": {
+                          "type": "string"
+                        },
+                        "@ondc/org/title_type": {
+                          "type": "string"
+                        },
+                        "price": {
+                          "type": "object",
+                          "properties": {
+                            "currency": {
+                              "type": "string"
+                            },
+                            "value": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "currency",
+                            "value"
+                          ]
+                        },
+                        "item": {
+                          "type": "object",
+                          "properties": {
+                            "price": {
+                              "type": "object",
+                              "properties": {
+                                "currency": {
+                                  "type": "string"
+                                },
+                                "value": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "currency",
+                                "value"
+                              ]
+                            }
+                          },
+                          "required": [
+                            "price"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "@ondc/org/item_id",
+                        "@ondc/org/item_quantity",
+                        "title",
+                        "@ondc/org/title_type",
+                        "price",
+                        "item"
+                      ]
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "@ondc/org/item_id": {
+                          "type": "string"
+                        },
+                        "@ondc/org/item_quantity": {
+                          "type": "object",
+                          "properties": {
+                            "count": {
+                              "type": "integer"
+                            }
+                          },
+                          "required": [
+                            "count"
+                          ]
+                        },
+                        "title": {
+                          "type": "string"
+                        },
+                        "@ondc/org/title_type": {
+                          "type": "string"
+                        },
+                        "price": {
+                          "type": "object",
+                          "properties": {
+                            "currency": {
+                              "type": "string"
+                            },
+                            "value": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "currency",
+                            "value"
+                          ]
+                        },
+                        "item": {
+                          "type": "object",
+                          "properties": {
+                            "price": {
+                              "type": "object",
+                              "properties": {
+                                "currency": {
+                                  "type": "string"
+                                },
+                                "value": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "currency",
+                                "value"
+                              ]
+                            }
+                          },
+                          "required": [
+                            "price"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "@ondc/org/item_id",
+                        "@ondc/org/item_quantity",
+                        "title",
+                        "@ondc/org/title_type",
+                        "price",
+                        "item"
+                      ]
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "@ondc/org/item_id": {
+                          "type": "string"
+                        },
+                        "title": {
+                          "type": "string"
+                        },
+                        "@ondc/org/title_type": {
+                          "type": "string"
+                        },
+                        "price": {
+                          "type": "object",
+                          "properties": {
+                            "currency": {
+                              "type": "string"
+                            },
+                            "value": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "currency",
+                            "value"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "@ondc/org/item_id",
+                        "title",
+                        "@ondc/org/title_type",
+                        "price"
+                      ]
+                    }
+                  ]
+                },
+                "ttl": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "price",
+                "breakup",
+                "ttl"
+              ]
+            },
+            "created_at": {
+              "type": "string"
+            },
+            "updated_at": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "state",
+            "billing",
+            "items",
+            "provider",
+            "fulfillments",
+            "payment",
+            "quote",
+            "created_at",
+            "updated_at"
+          ]
+        }
+      },
+      "required": [
+        "order"
+      ]
+    }
+  },
+  "required": [
+    "context",
+    "message"
+  ]
 }
