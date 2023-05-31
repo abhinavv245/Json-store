@@ -5,12 +5,7 @@
       "type": "object",
       "properties": {
         "domain": {
-          "type": "string",
-          "const": "nic2004:52110"
-        },
-        "action": {
-          "type": "string",
-          "const": "init"
+          "type": "string"
         },
         "country": {
           "type": "string"
@@ -18,17 +13,17 @@
         "city": {
           "type": "string"
         },
-        "core_version": {
+        "action": {
           "type": "string",
-          "const": "1.1.0"
+          "const": "init"
+        },
+        "core_version": {
+          "type": "string"
         },
         "bap_id": {
           "type": "string"
         },
         "bap_uri": {
-          "type": "string"
-        },
-        "bpp_id": {
           "type": "string"
         },
         "bpp_uri": {
@@ -41,27 +36,28 @@
           "type": "string"
         },
         "timestamp": {
-          "type": "string",
-          "format": "date-time"
+          "type": "string"
+        },
+        "bpp_id": {
+          "type": "string"
         },
         "ttl": {
-          "type": "string",
-          "format": "duration"
+          "type": "string"
         }
       },
       "required": [
         "domain",
-        "action",
         "country",
         "city",
+        "action",
         "core_version",
         "bap_id",
         "bap_uri",
-        "bpp_id",
         "bpp_uri",
         "transaction_id",
         "message_id",
         "timestamp",
+        "bpp_id",
         "ttl"
       ]
     },
@@ -79,61 +75,122 @@
                 },
                 "locations": {
                   "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "id": {
-                        "type": "string"
-                      }
-                    },
-                    "required": ["id"]
-                  }
+                  "items": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "id"
+                      ]
+                    }
+                  ]
                 }
               },
-              "required": ["id", "locations"]
+              "required": [
+                "id",
+                "locations"
+              ]
             },
             "items": {
               "type": "array",
-              "items": {
-                "type": "object",
-                "properties": {
-                  "id": {
-                    "type": "string",
-                    "minLength": 1
-                  },
-                  "fulfillment_id": {
-                    "type": "string",
-                    "minLength": 1
-                  },
-                  "quantity": {
-                    "type": "object",
-                    "properties": {
-                      "count": {
-                        "type": "integer"
-                      }
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
                     },
-                    "required": ["count"]
-                  }
+                    "quantity": {
+                      "type": "object",
+                      "properties": {
+                        "count": {
+                          "type": "integer"
+                        }
+                      },
+                      "required": [
+                        "count"
+                      ]
+                    },
+                    "fulfillment_id": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "quantity",
+                    "fulfillment_id"
+                  ]
                 },
-                "required": ["id", "fulfillment_id", "quantity"]
-              }
+                {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "quantity": {
+                      "type": "object",
+                      "properties": {
+                        "count": {
+                          "type": "integer"
+                        }
+                      },
+                      "required": [
+                        "count"
+                      ]
+                    },
+                    "fulfillment_id": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "quantity",
+                    "fulfillment_id"
+                  ]
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "quantity": {
+                      "type": "object",
+                      "properties": {
+                        "count": {
+                          "type": "integer"
+                        }
+                      },
+                      "required": [
+                        "count"
+                      ]
+                    },
+                    "fulfillment_id": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "quantity",
+                    "fulfillment_id"
+                  ]
+                }
+              ]
             },
             "billing": {
               "type": "object",
               "properties": {
-                "name": {
-                  "type": "string"
-                },
                 "address": {
                   "type": "object",
                   "properties": {
-                    "name": {
+                    "door": {
                       "type": "string"
                     },
                     "building": {
-                      "type": "string"
-                    },
-                    "locality": {
                       "type": "string"
                     },
                     "city": {
@@ -147,126 +204,158 @@
                     },
                     "area_code": {
                       "type": "string"
+                    },
+                    "locality": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
                     }
                   },
                   "required": [
-                    "name",
+                    "door",
                     "building",
-                    "locality",
                     "city",
                     "state",
                     "country",
-                    "area_code"
+                    "area_code",
+                    "locality",
+                    "name"
                   ]
-                },
-                "tax_number": {
-                  "type": "string"
-                },
-                "email": {
-                  "type": "string",
-                  "format": "email"
                 },
                 "phone": {
                   "type": "string"
                 },
+                "name": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string"
+                },
                 "created_at": {
-                  "type": "string",
-                  "format": "date-time"
+                  "type": "string"
                 },
                 "updated_at": {
-                  "type": "string",
-                  "format": "date-time"
+                  "type": "string"
                 }
               },
               "required": [
-                "name",
                 "address",
                 "phone",
+                "name",
+                "email",
                 "created_at",
                 "updated_at"
               ]
             },
             "fulfillments": {
               "type": "array",
-              "items": {
-                "type": "object",
-                "properties": {
-                  "id": {
-                    "type": "string"
-                  },
-                  "type": {
-                    "type": "string",
-                    "const": "Delivery"
-                  },
-                  "end": {
-                    "type": "object",
-                    "properties": {
-                      "location": {
-                        "type": "object",
-                        "properties": {
-                          "gps": {
-                            "type": "string"
-                          },
-                          "address": {
-                            "type": "object",
-                            "properties": {
-                              "name": {
-                                "type": "string"
-                              },
-                              "building": {
-                                "type": "string"
-                              },
-                              "locality": {
-                                "type": "string"
-                              },
-                              "city": {
-                                "type": "string"
-                              },
-                              "state": {
-                                "type": "string"
-                              },
-                              "country": {
-                                "type": "string"
-                              },
-                              "area_code": {
-                                "type": "string"
-                              }
-                            },
-                            "required": [
-                              "name",
-                              "building",
-                              "locality",
-                              "city",
-                              "state",
-                              "country",
-                              "area_code"
-                            ]
-                          }
-                        },
-                        "required": ["gps", "address"]
-                      },
-                      "contact": {
-                        "type": "object",
-                        "properties": {
-                          "phone": {
-                            "type": "string"
-                          }
-                        },
-                        "required": ["phone"]
-                      }
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
                     },
-                    "required": ["location", "contact"]
-                  }
-                },
-                "required": ["id", "type", "end"]
-              }
+                    "type": {
+                      "type": "string"
+                    },
+                    "end": {
+                      "type": "object",
+                      "properties": {
+                        "contact": {
+                          "type": "object",
+                          "properties": {
+                            "email": {
+                              "type": "string"
+                            },
+                            "phone": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "email",
+                            "phone"
+                          ]
+                        },
+                        "location": {
+                          "type": "object",
+                          "properties": {
+                            "gps": {
+                              "type": "string"
+                            },
+                            "address": {
+                              "type": "object",
+                              "properties": {
+                                "name": {
+                                  "type": "string"
+                                },
+                                "building": {
+                                  "type": "string"
+                                },
+                                "locality": {
+                                  "type": "string"
+                                },
+                                "city": {
+                                  "type": "string"
+                                },
+                                "state": {
+                                  "type": "string"
+                                },
+                                "country": {
+                                  "type": "string"
+                                },
+                                "area_code": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "name",
+                                "building",
+                                "locality",
+                                "city",
+                                "state",
+                                "country",
+                                "area_code"
+                              ]
+                            }
+                          },
+                          "required": [
+                            "gps",
+                            "address"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "contact",
+                        "location"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "type",
+                    "end"
+                  ]
+                }
+              ]
             }
           },
-          "required": ["provider", "items", "billing", "fulfillments"]
+          "required": [
+            "provider",
+            "items",
+            "billing",
+            "fulfillments"
+          ]
         }
       },
-      "required": ["order"]
+      "required": [
+        "order"
+      ]
     }
   },
-  "required": ["context", "message"]
+  "required": [
+    "context",
+    "message"
+  ]
 }
