@@ -1,0 +1,381 @@
+{
+    "type": "object",
+    "properties": {
+      "context": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string"
+          },
+          "bap_id": {
+            "type": "string"
+          },
+          "bap_uri": {
+            "type": "string"
+          },
+          "bpp_id": {
+            "type": "string"
+          },
+          "bpp_uri": {
+            "type": "string"
+          },
+          "city": {
+            "type": "string"
+          },
+          "core_version": {
+            "type": "string"
+          },
+          "country": {
+            "type": "string"
+          },
+          "domain": {
+            "type": "string"
+          },
+          "message_id": {
+            "type": "string"
+          },
+          "timestamp": {
+            "type": "string"
+          },
+          "transaction_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "action",
+          "bap_id",
+          "bap_uri",
+          "bpp_id",
+          "bpp_uri",
+          "city",
+          "core_version",
+          "country",
+          "domain",
+          "message_id",
+          "timestamp",
+          "transaction_id"
+        ]
+      },
+      "message": {
+        "type": "object",
+        "properties": {
+          "order": {
+            "type": "object",
+            "properties": {
+              "fulfillment": {
+                "type": "object",
+                "properties": {
+                  "customer": {
+                    "type": "object",
+                    "properties": {
+                      "person": {
+                        "type": "object",
+                        "properties": {
+                          "name": {
+                            "type": "string"
+                          },
+                          "phone": {
+                            "type": "string"
+                          },
+                          "tags": {
+                            "type": "object"
+                          }
+                        },
+                        "required": [
+                          "name",
+                          "phone",
+                          "tags"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "person"
+                    ]
+                  },
+                  "agent": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string"
+                      },
+                      "rateable": {
+                        "type": "boolean"
+                      },
+                      "rating": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "name",
+                      "rateable",
+                      "rating"
+                    ]
+                  },
+                  "end": {
+                    "type": "object",
+                    "properties": {
+                      "location": {
+                        "type": "object",
+                        "properties": {
+                          "address": {
+                            "type": "object",
+                            "properties": {
+                              "area_code": {
+                                "type": "string"
+                              },
+                              "building": {
+                                "type": "string"
+                              },
+                              "city": {
+                                "type": "string"
+                              },
+                              "country": {
+                                "type": "string"
+                              },
+                              "door": {
+                                "type": "string"
+                              },
+                              "locality": {
+                                "type": "string"
+                              },
+                              "state": {
+                                "type": "string"
+                              },
+                              "street": {
+                                "type": "string"
+                              },
+                              "ward": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "area_code",
+                              "building",
+                              "city",
+                              "country",
+                              "door",
+                              "locality",
+                              "state",
+                              "street",
+                              "ward"
+                            ]
+                          },
+                          "gps": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "address",
+                          "gps"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "location"
+                    ]
+                  },
+                  "id": {
+                    "type": "string"
+                  },
+                  "start": {
+                    "type": "object",
+                    "properties": {
+                      "location": {
+                        "type": "object",
+                        "properties": {
+                          "address": {
+                            "type": "object",
+                            "properties": {
+                              "area_code": {
+                                "type": "string"
+                              },
+                              "building": {
+                                "type": "string"
+                              },
+                              "city": {
+                                "type": "string"
+                              },
+                              "country": {
+                                "type": "string"
+                              },
+                              "door": {
+                                "type": "string"
+                              },
+                              "locality": {
+                                "type": "string"
+                              },
+                              "state": {
+                                "type": "string"
+                              },
+                              "street": {
+                                "type": "string"
+                              },
+                              "ward": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "area_code",
+                              "building",
+                              "city",
+                              "country",
+                              "door",
+                              "locality",
+                              "state",
+                              "street",
+                              "ward"
+                            ]
+                          },
+                          "gps": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "address",
+                          "gps"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "location"
+                    ]
+                  },
+                  "vehicle": {
+                    "type": "object",
+                    "properties": {
+                      "category": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "category"
+                    ]
+                  }
+                },
+                "required": [
+                  "customer",
+                  "agent",
+                  "end",
+                  "id",
+                  "start",
+                  "vehicle"
+                ]
+              },
+              "items": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "fulfillment_id": {
+                      "type": "string"
+                    },
+                    "id": {
+                      "type": "string"
+                    },
+                    "payment_id": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "fulfillment_id",
+                    "id",
+                    "payment_id"
+                  ]
+                }
+              },
+              "payment": {
+                "type": "object",
+                "properties": {
+                  "collected_by": {
+                    "type": "string"
+                  },
+                  "id": {
+                    "type": "string"
+                  },
+                  "type": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "collected_by",
+                  "id",
+                  "type"
+                ]
+              },
+              "provider": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id"
+                ]
+              },
+              "quote": {
+                "type": "object",
+                "properties": {
+                  "breakup": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "price": {
+                          "type": "object",
+                          "properties": {
+                            "currency": {
+                              "type": "string"
+                            },
+                            "value": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "currency",
+                            "value"
+                          ]
+                        },
+                        "title": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "price",
+                        "title"
+                      ]
+                    }
+                  },
+                  "currency": {
+                    "type": "string"
+                  },
+                  "value": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "breakup",
+                  "currency",
+                  "value"
+                ]
+              }
+            },
+            "required": [
+              "fulfillment",
+              "items",
+              "payment",
+              "provider",
+              "quote"
+            ]
+          }
+        },
+        "required": [
+          "order"
+        ]
+      }
+    },
+    "required": [
+      "context",
+      "message"
+    ]
+  }

@@ -1,0 +1,101 @@
+{
+  "type": "object",
+  "properties": {
+    "context": {
+      "type": "object",
+      "properties": {
+        "country": {
+          "type": "string"
+        },
+        "domain": {
+          "type": "string"
+        },
+        "timestamp": {
+          "type": "string"
+        },
+        "bap_id": {
+          "type": "string"
+        },
+        "transaction_id": {
+          "type": "string"
+        },
+        "message_id": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "core_version": {
+          "type": "string"
+        },
+        "action": {
+          "type": "string"
+        },
+        "bap_uri": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "country",
+        "domain",
+        "timestamp",
+        "bap_id",
+        "transaction_id",
+        "message_id",
+        "city",
+        "core_version",
+        "action",
+        "bap_uri"
+      ]
+    },
+    "message": {
+      "type": "object",
+      "properties": {
+        "intent": {
+          "type": "object",
+          "properties": {
+            "fulfillment": {
+              "type": "object",
+              "properties": {
+                "start": {
+                  "type": "object",
+                  "properties": {
+                    "location": {
+                      "type": "object",
+                      "properties": {
+                        "gps": {
+                          "type": "string"
+                        }
+                      },
+                      "required": ["gps"]
+                    }
+                  },
+                  "required": ["location"]
+                },
+                "end": {
+                  "type": "object",
+                  "properties": {
+                    "location": {
+                      "type": "object",
+                      "properties": {
+                        "gps": {
+                          "type": "string"
+                        }
+                      },
+                      "required": ["gps"]
+                    }
+                  },
+                  "required": ["location"]
+                }
+              },
+              "required": ["start", "end"]
+            }
+          },
+          "required": ["fulfillment"]
+        }
+      },
+      "required": ["intent"]
+    }
+  },
+  "required": ["context", "message"]
+}

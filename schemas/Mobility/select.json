@@ -1,0 +1,150 @@
+{
+    "type": "object",
+    "properties": {
+      "context": {
+        "type": "object",
+        "properties": {
+          "country": {
+            "type": "string"
+          },
+          "bpp_uri": {
+            "type": "string"
+          },
+          "domain": {
+            "type": "string"
+          },
+          "timestamp": {
+            "type": "string"
+          },
+          "bap_id": {
+            "type": "string"
+          },
+          "transaction_id": {
+            "type": "string"
+          },
+          "bpp_id": {
+            "type": "string"
+          },
+          "message_id": {
+            "type": "string"
+          },
+          "city": {
+            "type": "string"
+          },
+          "core_version": {
+            "type": "string"
+          },
+          "action": {
+            "type": "string"
+          },
+          "bap_uri": {
+            "type": "string"
+          },
+          "max_callbacks": {
+            "type": "number"
+          },
+          "ttl": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "country",
+          "bpp_uri",
+          "domain",
+          "timestamp",
+          "bap_id",
+          "transaction_id",
+          "bpp_id",
+          "message_id",
+          "city",
+          "core_version",
+          "action",
+          "bap_uri",
+          "max_callbacks",
+          "ttl"
+        ]
+      },
+      "message": {
+        "type": "object",
+        "properties": {
+          "order": {
+            "type": "object",
+            "properties": {
+              "items": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ]
+                }
+              },
+              "fulfillment": {
+                "type": "object",
+                "properties": {
+                  "start": {
+                    "type": "object",
+                    "properties": {
+                      "location": {
+                        "type": "object",
+                        "properties": {
+                          "gps": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "gps"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "location"
+                    ]
+                  },
+                  "end": {
+                    "type": "object",
+                    "properties": {
+                      "location": {
+                        "type": "object",
+                        "properties": {
+                          "gps": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "gps"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "location"
+                    ]
+                  }
+                },
+                "required": [
+                  "start",
+                  "end"
+                ]
+              }
+            },
+            "required": [
+              "items",
+              "fulfillment"
+            ]
+          }
+        },
+        "required": [
+          "order"
+        ]
+      }
+    },
+    "required": [
+      "context",
+      "message"
+    ]
+  }
